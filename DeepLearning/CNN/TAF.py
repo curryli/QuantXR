@@ -1,7 +1,6 @@
 
 # coding: utf-8
-
-# In[ ]:
+#pip install TA-Lib
 
 import numpy as np
 import pandas as pd
@@ -14,8 +13,8 @@ def get_factors(index,
                 Low, 
                 Volume,
                 rolling = 26,
-                drop=False, 
-                normalization=True):
+                drop=False,
+                normalization=False):
     
     tmp = pd.DataFrame()
     tmp['tradeTime'] = index
@@ -153,7 +152,7 @@ def get_factors(index,
 
         if rolling >= 26:
             for i in factors_list:
-                tmp[i] = (tmp[i] - tmp[i].rolling(window=rolling, center=False).mean())/                 tmp[i].rolling(window=rolling, center=False).std()
+                tmp[i] = (tmp[i] - tmp[i].rolling(window=rolling, center=False).mean())/ tmp[i].rolling(window=rolling, center=False).std()
         elif rolling < 26 & rolling > 0:
             print ('Recommended rolling range greater than 26')
         elif rolling <=0:

@@ -1,0 +1,32 @@
+windows环境下直接pip install TA_Lib-0.4.17-cp27-cp27m-win_amd64.whl
+
+linux:
+先安装C库
+http://sourceforge.mirrorservice.org/t/ta/ta-lib/ta-lib/0.4.0/
+Download ta-lib-0.4.0-src.tar.gz  
+$ untar and cd
+$ chmod 777 configure
+$ ./configure --prefix=/usr
+$ make
+$ sudo make install
+If you build TA-Lib using make -jX it will fail but that's OK! Simply rerun make -jX followed by [sudo] make install.
+
+Documentation Index
+
+
+然后安装python接口
+You can install from PyPI:
+
+方法1
+$ pip install TA-Lib
+
+
+
+方法2：下载最新源码 https://github.com/mrjbq7/ta-lib  解压
+$ python setup.py install
+ 
+
+cd /usr
+find -name libta_lib.so.0   
+export LD_LIBRARY_PATH=/usr/lib 
+source /etc/profile 
